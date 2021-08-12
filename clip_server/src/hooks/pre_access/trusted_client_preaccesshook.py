@@ -1,12 +1,11 @@
-from util.context import Context
+from hooks.pre_access.basepreaccesshook import BasePreAccessHook
 import server
 from importlib import machinery
 import json
 
+import os
 
-from server.hooks.basehook import BaseHook
-
-class TrustedClientHook(BaseHook):
+class TrustedClientHook(BasePreAccessHook):
     """
     Hook for restricting or allowing access to the clipboard server.
 
@@ -15,11 +14,11 @@ class TrustedClientHook(BaseHook):
     """
 
     def do_work(self, request):
-        file = open(Context.ctx.get_resource("config/trusted-clients-config.json"))
-        trusted_addresses = json.load(file)
-        file.close()
+        config_file = open("../config/trusted-clients-config.json")
+        trusted_addresses = json.load(config_file)
+        config_file.close()
         remote = request.remote_addr
-        if (remote in trusted_addresses) or remote.startswith('192.') or remote.startswith('127.'):
+        if (remote in trusted_addresses):
             return True
         else:
             return False

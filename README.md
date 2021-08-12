@@ -44,6 +44,6 @@ It's easy as that!
 
 ### Server Whitelist
 The clip/backend server will only accept requests from trusted clipboards. Trusted clipboards
-can be defined in ExtensibleClipboard/config/trusted-clients-config.json: Simply add the
+can be defined in ExtensibleClipboard/clip_server/config/trusted-clients-config.json: Simply add the
 IPv4 address of your clipboard device to the list to allow access to the clipboard.
 
