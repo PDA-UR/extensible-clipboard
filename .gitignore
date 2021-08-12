@@ -120,3 +120,5 @@ z_servers_obsolete/clip_collection.db
 *report.html
 
 *.pid
+
+clip_server/config/trusted-clients-config.json
