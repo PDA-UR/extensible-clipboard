@@ -19,6 +19,6 @@ class TrustedClientHook(BasePreAccessHook):
         config_file.close()
         remote = request.remote_addr
         if (remote in trusted_addresses):
-            return True
+            return request
         else:
-            return False
+            raise ValueError('User Not Authorized for Access on Resource!')

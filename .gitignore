@@ -122,3 +122,4 @@ z_servers_obsolete/clip_collection.db
 *.pid
 
 clip_server/config/trusted-clients-config.json
+.ini
